@@ -84,7 +84,7 @@ modules:
       arch:
         arm:
           env:
-            RENPY_DEPS_INSTALL: "/app::/usr::/usr/lib/arm-linux-gnuabihf"
+            RENPY_DEPS_INSTALL: "/app::/usr::/usr/lib/arm-linux-gnueabihf"
         aarch64:
           env:
             RENPY_DEPS_INSTALL: "/app::/usr::/usr/lib/aarch64-linux-gnu"
