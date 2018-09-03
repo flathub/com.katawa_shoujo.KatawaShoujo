@@ -4,8 +4,7 @@
 	<metadata_license>CC-BY-NC-SA-3.0</metadata_license>
 	<project_license>CC-BY-NC-SA-3.0</project_license>
 	<name>Katawa Shoujo</name>
-	<summary>Katawa Shoujo is a bishoujo-style visual novel set in the fictional Yamaku High School for disabled children, located somewhere in modern Japan.</summary>
-
+	<summary>Katawa Shoujo is a bishoujo-style visual novel.</summary>
 	<description>
 		<p>
 			Katawa Shoujo is a bishoujo-style visual novel set in the fictional Yamaku High School for disabled children, located somewhere in modern Japan. Hisao Nakai, a normal boy living a normal life, has his life turned upside down when a congenital heart defect forces him to move to a new school after a long hospitalization. Despite his difficulties, Hisao is able to find friends—and perhaps love, if he plays his cards right. There are five main paths corresponding to the 5 main female characters, each path following the storyline pertaining to that character.
@@ -17,9 +16,7 @@
 			Katawa Shoujo contains adult material, and was created using the Ren'Py scripting system. It is the product of an international team of amateur developers, and is available free of charge under the Creative Commons BY-NC-ND License.
 		</p>
 	</description>
-
 	<launchable type="desktop-id">com.katawa_shoujo.KatawaShoujo.desktop</launchable>
-
 	<screenshots>
 		<screenshot type="default">
 			<image type="source">http://dl.katawa-shoujo.com/pr/sample/screen/screen_4.jpg</image>
@@ -40,11 +37,9 @@
 			<image type="source">http://dl.katawa-shoujo.com/pr/sample/screen/screen_6.jpg</image>
 		</screenshot>
 	</screenshots>
-	
 	<releases>
 		<release version="1.3.1" date="2015-04-06"/>
 	</releases>
-	
 	<content_rating type="oars-1.1">
 		<content_attribute id="violence-realistic">mild</content_attribute>
 		<content_attribute id="violence-bloodshed">moderate</content_attribute>
@@ -57,7 +52,7 @@
 		<content_attribute id="language-profanity">intense</content_attribute>
 		<content_attribute id="language-humor">intense</content_attribute>
 	</content_rating>
-
 	<url type="homepage">https://www.katawa-shoujo.com/</url>
+	<update_contact>sakcheen+flathub@gmail.com</update_contact>
 	<developer_name>Four Leaf Studios</developer_name>
 </component>
