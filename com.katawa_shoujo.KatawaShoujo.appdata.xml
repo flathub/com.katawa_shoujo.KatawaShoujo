@@ -62,7 +62,7 @@
 		<content_attribute id="language-humor">intense</content_attribute>
 	</content_rating>
 	<url type="homepage">https://www.katawa-shoujo.com/</url>
-	<url type="faq">https://ks.renai.us/viewtopic.php?f=13&t=4717</url>
+	<url type="faq">https://ks.renai.us/viewtopic.php?f=13&amp;t=4717</url>
 	<update_contact>sakcheen+flathub_AT_gmail.com</update_contact>
 	<developer_name>Four Leaf Studios</developer_name>
 </component>
