@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
 	<id>com.katawa_shoujo.KatawaShoujo</id>
-	<metadata_license>CC-BY-NC-SA-3.0</metadata_license>
+	<metadata_license>CC-BY-SA-3.0</metadata_license>
 	<name>Katawa Shoujo</name>
 	<summary>A bishoujo-style visual novel</summary>
 	<description>
