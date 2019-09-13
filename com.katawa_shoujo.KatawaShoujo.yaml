@@ -15,6 +15,11 @@ modules:
   - shared-modules/glew/glew.json
   - shared-modules/glu/glu-9.0.0.json
   - shared-modules/python2.7/python-2.7.json
+add-extensions:
+  - org.freedesktop.Platform.ffmpeg-full:
+      - directory: lib/ffmpeg
+        version: '19.08'
+        add-ld-path: '.'
 
   - name: cython
     buildsystem: simple
