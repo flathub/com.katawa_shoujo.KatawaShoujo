@@ -83,6 +83,8 @@ add-extensions:
       - install -Dm644 -t "${FLATPAK_DEST}/share/appdata/" com.katawa_shoujo.KatawaShoujo.appdata.xml
       - install -Dm644 -t "${FLATPAK_DEST}/share/applications/" com.katawa_shoujo.KatawaShoujo.desktop
       - install -Dm644 icon512x512.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
+    post-install:
+      - install -d /app/lib/ffmpeg
     sources:
       - type: archive
         url: http://dl.katawa-shoujo.com/gold_1.3.1/[4ls]_katawa_shoujo_1.3.1-[linux-x86][18161880].tar.bz2
