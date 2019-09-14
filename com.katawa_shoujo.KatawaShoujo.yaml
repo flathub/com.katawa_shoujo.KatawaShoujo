@@ -1,6 +1,6 @@
 app-id: com.katawa_shoujo.KatawaShoujo
 runtime: org.freedesktop.Platform
-runtime-version: '18.08'
+runtime-version: '19.08'
 sdk: org.freedesktop.Sdk
 command: KatawaShoujo.sh
 finish-args:
@@ -14,7 +14,7 @@ cleanup: ['/include']
 modules:
   - shared-modules/glew/glew.json
   - shared-modules/glu/glu-9.0.0.json
-  - shared-modules/python2.7/python-2.7.15.json
+  - shared-modules/python2.7/python-2.7.json
 
   - name: cython
     buildsystem: simple
@@ -22,8 +22,8 @@ modules:
       - python2 setup.py install --prefix="${FLATPAK_DEST}" --optimize=1
     sources:
       - type: archive
-        url: https://github.com/cython/cython/archive/0.29.1.tar.gz
-        sha256: fab6796e5a5fb6e2f860c7d8180479dade01dfbebaf490a213c3e312a3a278d8
+        url: https://github.com/cython/cython/archive/0.29.13.tar.gz
+        sha256: af71d040fa9fa1af0ea2b7a481193776989ae93ae828eb018416cac771aef07f
     cleanup: ['*']
 
   - name: pygame-sdl2
