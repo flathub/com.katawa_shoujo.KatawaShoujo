@@ -1,8 +1,14 @@
 app-id: com.katawa_shoujo.KatawaShoujo
 runtime: org.freedesktop.Platform
-runtime-version: '19.08'
+runtime-version: '20.08'
 sdk: org.freedesktop.Sdk
-command: KatawaShoujo.sh
+command: "KatawaShoujo.sh"
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    directory: lib/ffmpeg
+    add-ld-path: "."
+    version: "20.08"
+    autodelete: false
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -13,18 +19,8 @@ finish-args:
 cleanup: ['/include']
 modules:
   - shared-modules/glew/glew.json
-  - shared-modules/glu/glu-9.0.0.json
+  - shared-modules/glu/glu-9.json
   - shared-modules/python2.7/python-2.7.json
-
-  - name: cython
-    buildsystem: simple
-    build-commands:
-      - python2 setup.py install --prefix="${FLATPAK_DEST}" --optimize=1
-    sources:
-      - type: archive
-        url: https://github.com/cython/cython/archive/0.29.13.tar.gz
-        sha256: af71d040fa9fa1af0ea2b7a481193776989ae93ae828eb018416cac771aef07f
-    cleanup: ['*']
 
   - name: pygame-sdl2
     buildsystem: simple
@@ -38,30 +34,6 @@ modules:
         url: https://github.com/renpy/pygame_sdl2.git
         commit: f2b6ff38d5793a1904970daa192915da377bb315
 
-  - name: ffmpeg
-    config-opts:
-      - --disable-static
-      - --enable-shared
-      - --disable-debug
-      - --disable-doc
-      - --disable-ffplay
-      - --disable-ffprobe
-      - --disable-encoders
-      - --disable-muxers
-      - --enable-pic
-      - --enable-gpl
-      - --enable-libopus
-      - --enable-libvorbis
-      - --enable-optimizations
-      - --enable-libvpx
-      - --enable-opengl
-      - --enable-sdl2
-    sources:
-      - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-4.1.tar.xz
-        sha256: a38ec4d026efb58506a99ad5cd23d5a9793b4bf415f2c4c2e9c1bb444acd1994
-    cleanup: ['/share/ffmpeg']
-
   - name: renpy
     buildsystem: simple
     build-options:
@@ -69,15 +41,19 @@ modules:
         arm:
           env:
             RENPY_DEPS_INSTALL: "/app::/usr::/usr/lib/arm-linux-gnueabihf"
+            CFLAGS: -fcommon
         aarch64:
           env:
             RENPY_DEPS_INSTALL: "/app::/usr::/usr/lib/aarch64-linux-gnu"
+            CFLAGS: -fcommon
         i386:
           env:
             RENPY_DEPS_INSTALL: "/app::/usr::/usr/lib/i386-linux-gnu"
+            CFLAGS: -fcommon
         x86_64:
           env:
             RENPY_DEPS_INSTALL: "/app::/usr::/usr/lib/x86_64-linux-gnu"
+            CFLAGS: -fcommon
     build-commands:
       - python2 module/setup.py build
       - python2 module/setup.py install --prefix="${FLATPAK_DEST}" --optimize=1
@@ -96,6 +72,7 @@ modules:
   - name: KatawaShoujo
     buildsystem: simple
     build-commands:
+      - mkdir -p /app/lib/ffmpeg
       - cp -R game "${FLATPAK_DEST}/game"
       - cp -R localizations "${FLATPAK_DEST}/localizations"
       - install -Dm755 launcher.sh "${FLATPAK_DEST}/bin/KatawaShoujo.sh"
@@ -109,7 +86,7 @@ modules:
       - type: script
         dest-filename: launcher.sh
         commands:
-          - renpy /app/game
+          - renpy /app/game "$@"
       - type: file
         path: com.katawa_shoujo.KatawaShoujo.appdata.xml
       - type: file
