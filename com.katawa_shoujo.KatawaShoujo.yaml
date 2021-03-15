@@ -22,6 +22,7 @@ modules:
   - shared-modules/glu/glu-9.json
   - shared-modules/python2.7/python-2.7.json
   - shared-modules/SDL/SDL-1.2.15.json
+  - shared-modules/pygame/pygame-1.9.4.json
 
   - name: renpy
     buildsystem: simple
