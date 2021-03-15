@@ -21,18 +21,7 @@ modules:
   - shared-modules/glew/glew.json
   - shared-modules/glu/glu-9.json
   - shared-modules/python2.7/python-2.7.json
-
-  - name: pygame-sdl2
-    buildsystem: simple
-    build-commands:
-      - python2 setup.py build
-      - python2 setup.py install --root=/ --prefix="${FLATPAK_DEST}" --optimize=1
-    ensure-writable:
-        - easy-install.pth
-    sources:
-      - type: git
-        url: https://github.com/renpy/pygame_sdl2.git
-        commit: f2b6ff38d5793a1904970daa192915da377bb315
+  - shared-modules/SDL/SDL-1.2.15.json
 
   - name: renpy
     buildsystem: simple
