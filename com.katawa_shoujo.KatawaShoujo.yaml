@@ -29,11 +29,11 @@ modules:
       arch:
         arm:
           env:
-            RENPY_DEPS_INSTALL: "/app::/usr::/lib::/lib64::/lib/arm-linux-gnueabihf"
+            RENPY_DEPS_INSTALL: "/app::/usr::/lib::/lib/arm-linux-gnueabihf"
             CFLAGS: -fcommon
         aarch64:
           env:
-            RENPY_DEPS_INSTALL: "/app::/usr::/lib::/lib/aarch64-linux-gnu"
+            RENPY_DEPS_INSTALL: "/app::/usr::/lib::/lib64::/lib/aarch64-linux-gnu"
             CFLAGS: -fcommon
         i386:
           env:
