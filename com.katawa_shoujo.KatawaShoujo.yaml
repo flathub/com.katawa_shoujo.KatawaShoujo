@@ -62,8 +62,8 @@ modules:
       - install -Dm755 renpy.sh "${FLATPAK_DEST}/bin/renpy"
     sources:
       - type: archive
-        url: https://www.renpy.org/dl/6.99.14.3/renpy-6.99.14.3-source.tar.bz2
-        sha256: e37450d8baf201df2da71db3cc196af8b22377a92f0c06eb72f632ba964fc296
+        url: https://www.renpy.org/dl/6.18.3/renpy-6.18.3-source.tar.bz2
+        sha256: c0c6af79ceb529e69cebfdb0e9849e50dc27e424dc2fd2b322c13d6ec938cba6
       - type: script
         commands:
           - python2 /app/share/renpy/renpy.py "$@"
