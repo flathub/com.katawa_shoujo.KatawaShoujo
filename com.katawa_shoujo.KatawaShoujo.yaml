@@ -21,7 +21,6 @@ modules:
   - shared-modules/glew/glew.json
   - shared-modules/glu/glu-9.json
   - shared-modules/python2.7/python-2.7.json
-  - shared-modules/SDL/SDL-1.2.15.json
   - shared-modules/pygame/pygame-1.9.4.json
 
   - name: renpy
@@ -30,19 +29,19 @@ modules:
       arch:
         arm:
           env:
-            RENPY_DEPS_INSTALL: "/app::/usr::/usr/lib/arm-linux-gnueabihf"
+            RENPY_DEPS_INSTALL: "/app::/usr::/lib::/lib64::/lib/arm-linux-gnueabihf"
             CFLAGS: -fcommon
         aarch64:
           env:
-            RENPY_DEPS_INSTALL: "/app::/usr::/usr/lib/aarch64-linux-gnu"
+            RENPY_DEPS_INSTALL: "/app::/usr::/lib::/lib/aarch64-linux-gnu"
             CFLAGS: -fcommon
         i386:
           env:
-            RENPY_DEPS_INSTALL: "/app::/usr::/usr/lib/i386-linux-gnu"
+            RENPY_DEPS_INSTALL: "/app::/usr::/lib::/lib/i386-linux-gnu"
             CFLAGS: -fcommon
         x86_64:
           env:
-            RENPY_DEPS_INSTALL: "/app::/usr::/usr/lib/x86_64-linux-gnu"
+            RENPY_DEPS_INSTALL: "/app::/usr::/lib::/lib64::/lib/x86_64-linux-gnu"
             CFLAGS: -fcommon
     build-commands:
       - python2 module/setup.py build
