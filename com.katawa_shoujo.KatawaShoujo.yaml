@@ -1,8 +1,8 @@
 app-id: com.katawa_shoujo.KatawaShoujo
 runtime: org.freedesktop.Platform
-runtime-version: '20.08'
+runtime-version: "20.08"
 sdk: org.freedesktop.Sdk
-command: "KatawaShoujo.sh"
+command: "KatawaShoujo"
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     directory: lib/ffmpeg
@@ -13,15 +13,29 @@ finish-args:
   - --share=ipc
   - --socket=x11
   - --device=dri
-  - --socket=wayland
   - --socket=pulseaudio
   - --persist=.renpy
-cleanup: ['/include']
+cleanup: ["/include"]
 modules:
   - shared-modules/glew/glew.json
   - shared-modules/glu/glu-9.json
   - shared-modules/python2.7/python-2.7.json
-  - shared-modules/pygame/pygame-1.9.4.json
+  - pygame/pygame-1.9.6.json
+
+  - name: ffmpeg-avresample
+    cleanup:
+      - /lib/pkgconfig
+      - /share/ffmpeg/examples
+    config-opts:
+      - --disable-all
+      - --enable-shared
+      - --disable-static
+      - --enable-gnutls
+      - --enable-avresample
+    sources:
+      - type: archive
+        url: https://ffmpeg.org/releases/ffmpeg-4.2.2.tar.xz
+        sha256: cb754255ab0ee2ea5f66f8850e1bd6ad5cac1cd855d0a2f4990fb8c668b0d29c
 
   - name: renpy
     buildsystem: simple
@@ -47,7 +61,7 @@ modules:
       - python2 module/setup.py build
       - python2 module/setup.py install --prefix="${FLATPAK_DEST}" --optimize=1
       - install -dm755 "${FLATPAK_DEST}/share/renpy"
-      - cp -r doc gui launcher renpy renpy.py templates "${FLATPAK_DEST}/share/renpy/"
+      - cp -r doc launcher renpy renpy.py templates "${FLATPAK_DEST}/share/renpy/"
       - install -Dm755 renpy.sh "${FLATPAK_DEST}/bin/renpy"
     sources:
       - type: archive
@@ -57,6 +71,13 @@ modules:
         commands:
           - python2 /app/share/renpy/renpy.py "$@"
         dest-filename: renpy.sh
+      - type: patch
+        paths:
+          - patch-pygame-1.9.5.patch
+          - patch-module_ffdecode.c.patch
+          - patch-renpy_gl_gltexture.pyx.patch
+          - patch-renpy_display_render.pyx.patch
+        strip-components: 0
 
   - name: KatawaShoujo
     buildsystem: simple
@@ -64,7 +85,7 @@ modules:
       - mkdir -p /app/lib/ffmpeg
       - cp -R game "${FLATPAK_DEST}/game"
       - cp -R localizations "${FLATPAK_DEST}/localizations"
-      - install -Dm755 launcher.sh "${FLATPAK_DEST}/bin/KatawaShoujo.sh"
+      - install -Dm755 launcher.sh "${FLATPAK_DEST}/bin/KatawaShoujo"
       - install -Dm644 -t "${FLATPAK_DEST}/share/appdata/" com.katawa_shoujo.KatawaShoujo.appdata.xml
       - install -Dm644 -t "${FLATPAK_DEST}/share/applications/" com.katawa_shoujo.KatawaShoujo.desktop
       - install -Dm644 icon512x512.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"

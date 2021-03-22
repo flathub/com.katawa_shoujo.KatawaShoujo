@@ -1,4 +1,5 @@
 /builddir
 /builds
+/build
 /repo
 /.flatpak-builder

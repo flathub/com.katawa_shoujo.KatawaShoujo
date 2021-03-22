@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Katawa Shoujo
-Exec=KatawaShoujo.sh
+Exec=KatawaShoujo
 Icon=com.katawa_shoujo.KatawaShoujo
 Categories=Game;AdventureGame
