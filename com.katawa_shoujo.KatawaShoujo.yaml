@@ -8,6 +8,7 @@ finish-args:
   - --socket=x11
   - --device=dri
   - --socket=pulseaudio
+  - --persist=.renpy
 modules:
   - name: KatawaShoujo
     buildsystem: simple
