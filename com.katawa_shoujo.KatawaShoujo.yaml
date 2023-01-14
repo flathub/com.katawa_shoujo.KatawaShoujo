@@ -1,102 +1,31 @@
 app-id: com.katawa_shoujo.KatawaShoujo
 runtime: org.freedesktop.Platform
-runtime-version: "21.08"
+runtime-version: "22.08"
 sdk: org.freedesktop.Sdk
 command: "KatawaShoujo"
-add-extensions:
-  org.freedesktop.Platform.ffmpeg-full:
-    directory: lib/ffmpeg
-    add-ld-path: "."
-    version: "21.08"
-    autodelete: false
 finish-args:
   - --share=ipc
   - --socket=x11
   - --device=dri
   - --socket=pulseaudio
-  - --persist=.renpy
-cleanup: ["/include"]
 modules:
-  - shared-modules/glew/glew.json
-  - shared-modules/glu/glu-9.json
-  - shared-modules/python2.7/python-2.7.json
-  - pygame/pygame-1.9.6.json
-
-  - name: ffmpeg-avresample
-    cleanup:
-      - /lib/pkgconfig
-      - /share/ffmpeg/examples
-    config-opts:
-      - --disable-all
-      - --enable-shared
-      - --disable-static
-      - --enable-gnutls
-      - --enable-avresample
-    sources:
-      - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-4.2.2.tar.xz
-        sha256: cb754255ab0ee2ea5f66f8850e1bd6ad5cac1cd855d0a2f4990fb8c668b0d29c
-
-  - name: renpy
-    buildsystem: simple
-    build-options:
-      arch:
-        arm:
-          env:
-            RENPY_DEPS_INSTALL: "/app::/usr::/lib::/lib/arm-linux-gnueabihf"
-            CFLAGS: -fcommon
-        aarch64:
-          env:
-            RENPY_DEPS_INSTALL: "/app::/usr::/lib::/lib64::/lib/aarch64-linux-gnu"
-            CFLAGS: -fcommon
-        i386:
-          env:
-            RENPY_DEPS_INSTALL: "/app::/usr::/lib::/lib/i386-linux-gnu"
-            CFLAGS: -fcommon
-        x86_64:
-          env:
-            RENPY_DEPS_INSTALL: "/app::/usr::/lib::/lib64::/lib/x86_64-linux-gnu"
-            CFLAGS: -fcommon
-    build-commands:
-      - python2 module/setup.py build
-      - python2 module/setup.py install --prefix="${FLATPAK_DEST}" --optimize=1
-      - install -dm755 "${FLATPAK_DEST}/share/renpy"
-      - cp -r doc launcher renpy renpy.py templates "${FLATPAK_DEST}/share/renpy/"
-      - install -Dm755 renpy.sh "${FLATPAK_DEST}/bin/renpy"
-    sources:
-      - type: archive
-        url: https://www.renpy.org/dl/6.18.3/renpy-6.18.3-source.tar.bz2
-        sha256: c0c6af79ceb529e69cebfdb0e9849e50dc27e424dc2fd2b322c13d6ec938cba6
-      - type: script
-        commands:
-          - python2 /app/share/renpy/renpy.py "$@"
-        dest-filename: renpy.sh
-      - type: patch
-        paths:
-          - patch-pygame-1.9.5.patch
-          - patch-module_ffdecode.c.patch
-          - patch-renpy_gl_gltexture.pyx.patch
-          - patch-renpy_display_render.pyx.patch
-        strip-components: 0
-
   - name: KatawaShoujo
     buildsystem: simple
     build-commands:
-      - mkdir -p /app/lib/ffmpeg
-      - cp -R game "${FLATPAK_DEST}/game"
-      - cp -R localizations "${FLATPAK_DEST}/localizations"
+      - mkdir -p /app/game
+      - cp -R KatawaShoujo.py KatawaShoujo.sh game lib renpy "${FLATPAK_DEST}/game"
       - install -Dm755 launcher.sh "${FLATPAK_DEST}/bin/KatawaShoujo"
       - install -Dm644 -t "${FLATPAK_DEST}/share/appdata/" com.katawa_shoujo.KatawaShoujo.appdata.xml
       - install -Dm644 -t "${FLATPAK_DEST}/share/applications/" com.katawa_shoujo.KatawaShoujo.desktop
       - install -Dm644 icon512x512.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
     sources:
       - type: archive
-        url: http://dl.katawa-shoujo.com/gold_1.3.1/[4ls]_katawa_shoujo_1.3.1-[linux-x86][18161880].tar.bz2
-        sha256: ec5a05cfcf1d5981ecdbfa71904c279a215e79bdfeb256b2ad6927109a0007da
+        url: https://github.com/gcammisa/KatawaShoujo-RenPy8/releases/download/8.0.3/katawashoujo-linux.tar.bz2
+        sha256: c4719b80c6a51f4a0b7a491b5a272f4a1c7a154f52bcda21b0684d5010f7a479
       - type: script
         dest-filename: launcher.sh
         commands:
-          - renpy /app/game "$@"
+          - /app/game/KatawaShoujo.sh "$@"
       - type: file
         path: com.katawa_shoujo.KatawaShoujo.appdata.xml
       - type: file
