@@ -89,6 +89,7 @@ modules:
       - install -Dm644 -t "${FLATPAK_DEST}/share/appdata/" com.katawa_shoujo.KatawaShoujo.appdata.xml
       - install -Dm644 -t "${FLATPAK_DEST}/share/applications/" com.katawa_shoujo.KatawaShoujo.desktop
       - install -Dm644 icon512x512.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
+      - renpy /app/game/ compile
     sources:
       - type: archive
         url: https://github.com/gcammisa/KatawaShoujo-RenPy8/archive/refs/tags/8.0.3.tar.gz
