@@ -28,22 +28,22 @@
 	<developer_name>Four Leaf Studios</developer_name>
 	<screenshots>
 		<screenshot>
-			<image type="source">http://dl.katawa-shoujo.com/pr/sample/screen/screen_1.jpg</image>
+			<image type="source">https://dl.katawa-shoujo.com/pr/sample/screen/screen_1.jpg</image>
 		</screenshot>
 		<screenshot>
-			<image type="source">http://dl.katawa-shoujo.com/pr/sample/screen/screen_2.jpg</image>
+			<image type="source">https://dl.katawa-shoujo.com/pr/sample/screen/screen_2.jpg</image>
 		</screenshot>
 		<screenshot>
-			<image type="source">http://dl.katawa-shoujo.com/pr/sample/screen/screen_3.jpg</image>
+			<image type="source">https://dl.katawa-shoujo.com/pr/sample/screen/screen_3.jpg</image>
 		</screenshot>
 		<screenshot type="default">
-			<image type="source">http://dl.katawa-shoujo.com/pr/sample/screen/screen_4.jpg</image>
+			<image type="source">https://dl.katawa-shoujo.com/pr/sample/screen/screen_4.jpg</image>
 		</screenshot>
 		<screenshot>
-			<image type="source">http://dl.katawa-shoujo.com/pr/sample/screen/screen_5.jpg</image>
+			<image type="source">https://dl.katawa-shoujo.com/pr/sample/screen/screen_5.jpg</image>
 		</screenshot>
 		<screenshot>
-			<image type="source">http://dl.katawa-shoujo.com/pr/sample/screen/screen_6.jpg</image>
+			<image type="source">https://dl.katawa-shoujo.com/pr/sample/screen/screen_6.jpg</image>
 		</screenshot>
 	</screenshots>
 	<update_contact>sakcheen+flathub_AT_gmail.com</update_contact>
