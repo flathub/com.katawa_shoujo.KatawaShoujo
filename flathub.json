@@ -1,3 +1,4 @@
 {
-  "end-of-life": "This application is superseded by Katawa Shoujo: Re-Engineered."
+  "end-of-life": "This application is superseded by Katawa Shoujo: Re-Engineered, however existing saves cannot be transfered.",
+  "end-of-life-rebase": "sh.fhs.ksre"
 }
