@@ -76,6 +76,8 @@ modules:
       - type: archive
         url: https://www.renpy.org/dl/8.0.3/renpy-8.0.3-source.tar.bz2
         sha256: f6c9279bc9ab53c0afb1d35dae01e2e9bdfca57a8553039e2360987881f189ac
+      - type: patch
+        path: renpy-8.0.3-version.patch
       - type: script
         commands:
           - python /app/share/renpy/renpy.py "$@"

@@ -1,0 +1,8 @@
+--- a/module/setup.py.bak	2026-01-16 23:52:55.916156921 +0100
++++ b/module/setup.py	2026-01-16 23:53:39.503196467 +0100
+@@ -225,4 +225,4 @@
+ 
+ import renpy
+ 
+-setuplib.setup("Ren'Py", renpy.version[7:]) # @UndefinedVariable
++setuplib.setup("Ren'Py", renpy.version[7:].removesuffix("u")) # @UndefinedVariable

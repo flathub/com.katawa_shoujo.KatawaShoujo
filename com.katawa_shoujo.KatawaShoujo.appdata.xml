@@ -14,7 +14,7 @@
 		<category>AdventureGame</category>
 	</categories>
 	<url type="homepage">https://www.katawa-shoujo.com/</url>
-	<url type="faq">https://ks.renai.us/viewtopic.php?f=13&amp;t=4717</url>
+	<url type="faq">https://ks.fhs.sh/viewtopic.php?f=13&amp;t=4717</url>
 	<launchable type="desktop-id">com.katawa_shoujo.KatawaShoujo.desktop</launchable>
 	<releases>
 		<release version="1.3.1" date="2015-04-06">
@@ -28,22 +28,22 @@
 	<developer_name>Four Leaf Studios</developer_name>
 	<screenshots>
 		<screenshot>
-			<image type="source">https://dl.katawa-shoujo.com/pr/sample/screen/screen_1.jpg</image>
+			<image type="source">https://www.katawa-shoujo.com/img/screenshot/screen_1.webp</image>
 		</screenshot>
 		<screenshot>
-			<image type="source">https://dl.katawa-shoujo.com/pr/sample/screen/screen_2.jpg</image>
+			<image type="source">https://www.katawa-shoujo.com/img/screenshot/screen_2.webp</image>
 		</screenshot>
 		<screenshot>
-			<image type="source">https://dl.katawa-shoujo.com/pr/sample/screen/screen_3.jpg</image>
+			<image type="source">https://www.katawa-shoujo.com/img/screenshot/screen_3.webp</image>
+		</screenshot>
+		<screenshot>
+			<image type="source">https://www.katawa-shoujo.com/img/screenshot/screen_4.webp</image>
+		</screenshot>
+		<screenshot>
+			<image type="source">https://www.katawa-shoujo.com/img/screenshot/screen_5.webp</image>
 		</screenshot>
 		<screenshot type="default">
-			<image type="source">https://dl.katawa-shoujo.com/pr/sample/screen/screen_4.jpg</image>
-		</screenshot>
-		<screenshot>
-			<image type="source">https://dl.katawa-shoujo.com/pr/sample/screen/screen_5.jpg</image>
-		</screenshot>
-		<screenshot>
-			<image type="source">https://dl.katawa-shoujo.com/pr/sample/screen/screen_6.jpg</image>
+			<image type="source">https://www.katawa-shoujo.com/img/screenshot/screen_6.webp</image>
 		</screenshot>
 	</screenshots>
 	<update_contact>sakcheen+flathub_AT_gmail.com</update_contact>
